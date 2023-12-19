@@ -1,0 +1,17 @@
+Parameter	Setting
+Width:	2400
+Height:	2400
+P Column:	
+FC Column:	
+P Cutoff:	0.05
+FC Cutoff:	2
+P Column (MA):	
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+Stat_easyRNASeq_Anno_Percival_genes_rpkm.txt.filtered.txt.fixheaders.txt_2017-04-24_Percival_Sample_Info.txt_Tukey_conditional-statanalyzed.txt	/home/act/datatest/2018-01-04_volcano_ma	2017-08-10 10:52:03	1f9a280d2effbbe3256b921a6299c6d8
+		2017-11-08 08:52:54	
+
+Marburg command: ssh -i /home/yonggan/.ssh/id_rsa_nick act@192.168.0.14 'cd /home/act/software/nickbild/webdata/volcano_ma/webdata/OslmwifS; /home/act/software/nickbild/volcano_ma_plots.pl "" 0 "Stat_easyRNASeq_Anno_Percival_genes_rpkm.txt.filtered.txt.fixheaders.txt_2017-04-24_Percival_Sample_Info.txt_Tukey_conditional-statanalyzed.txt" "" "" "0.05" "2" "" "2400" "2400"'
+Response: Generating plots...
+No such file or directory at /home/act/software/nickbild/volcano_ma_plots.pl line 214.
+

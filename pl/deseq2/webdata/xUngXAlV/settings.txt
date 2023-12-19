@@ -1,0 +1,9 @@
+Parameter	Setting
+Poject:	proj
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+data.txt	/home/act/datatest/2018-01-04_expr_boxplots	2018-01-04 16:16:43	1f9a280d2effbbe3256b921a6299c6d8
+sampleinfo.txt	/home/act/datatest/2018-01-04_expr_boxplots	2018-01-04 16:16:56	3f130e0ae791b145697b12ea4a1c15ee
+
+Marburg command: ssh -i /home/yonggan/.ssh/id_rsa_nick act@192.168.0.14 'cd /home/act/software/nickbild/webdata/expr_boxplots/webdata/xUngXAlV; /home/act/software/nickbild/expr_boxplots.pl "sampleinfo.txt" "data.txt" "proj"'
+Response: 

@@ -1,0 +1,6 @@
+Parameter	Setting
+Output Count Format:	3
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+easyRNASeq_Anno_MoveDMD_PartB_Batch3_genes_raw.txt	/home/act/datatest/2018-01-05_deseq2	2017-10-18 07:23:15	b03ba875c4701bd3de6fbdb177b2bd51
+2017-10-10_Catabasis_Batch3_Sample_Info.1-factor.txt	/home/act/datatest/2018-01-05_deseq2	2017-10-26 09:55:39	0c9378843a79bcfbd7cbfd984475a6bd

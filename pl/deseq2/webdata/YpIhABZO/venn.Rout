@@ -1,0 +1,39 @@
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library (VennDiagram)
+Loading required package: grid
+Loading required package: futile.logger
+> jpeg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/YpIhABZO/venn/venn.jpg", width=2400, height=2400, res=300)
+> draw.quad.venn(area1 = 3169, area2 = 3116, area3 = 6155 , area4 = 5865 , n12 = 3028, n13 = 1555, n14 = 1511, n23 = 1538, n24 = 1490, n34 = 2497, n123 = 1497, n124 = 1452, n134 = 724, n234 = 714, n1234 = 699, category=c('D long description', 'C long description', 'A long description', 'B long description'), fill=c('light blue', 'pink', 'skyblue', 'orange') )
+(polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], polygon[GRID.polygon.5], polygon[GRID.polygon.6], polygon[GRID.polygon.7], polygon[GRID.polygon.8], text[GRID.text.9], text[GRID.text.10], text[GRID.text.11], text[GRID.text.12], text[GRID.text.13], text[GRID.text.14], text[GRID.text.15], text[GRID.text.16], text[GRID.text.17], text[GRID.text.18], text[GRID.text.19], text[GRID.text.20], text[GRID.text.21], text[GRID.text.22], text[GRID.text.23], text[GRID.text.24], text[GRID.text.25], text[GRID.text.26], text[GRID.text.27]) 
+> dev.off()
+null device 
+          1 
+> svg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/YpIhABZO/venn/venn.svg")
+> draw.quad.venn(area1 = 3169, area2 = 3116, area3 = 6155 , area4 = 5865 , n12 = 3028, n13 = 1555, n14 = 1511, n23 = 1538, n24 = 1490, n34 = 2497, n123 = 1497, n124 = 1452, n134 = 724, n234 = 714, n1234 = 699, category=c('D long description', 'C long description', 'A long description', 'B long description'), fill=c('light blue', 'pink', 'skyblue', 'orange') )
+(polygon[GRID.polygon.28], polygon[GRID.polygon.29], polygon[GRID.polygon.30], polygon[GRID.polygon.31], polygon[GRID.polygon.32], polygon[GRID.polygon.33], polygon[GRID.polygon.34], polygon[GRID.polygon.35], text[GRID.text.36], text[GRID.text.37], text[GRID.text.38], text[GRID.text.39], text[GRID.text.40], text[GRID.text.41], text[GRID.text.42], text[GRID.text.43], text[GRID.text.44], text[GRID.text.45], text[GRID.text.46], text[GRID.text.47], text[GRID.text.48], text[GRID.text.49], text[GRID.text.50], text[GRID.text.51], text[GRID.text.52], text[GRID.text.53], text[GRID.text.54]) 
+> dev.off()
+null device 
+          1 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  1.248   0.047   1.285 

@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Ocean Ridge Biosciences Intranet</title>
+		<link rel='stylesheet' href='../../css/style.css' type='text/css'>
+		<link rel='stylesheet' href='result.css' type='text/css'>
+	</head>
+	<body style="padding-left:5px">
+		<div id="title">
+			<h1>DESeq2</h1>
+		<hr>
+		<h3>Configuration:</h3>
+		<form method=post action="api.cgi" id="form" enctype="multipart/form-data">
+			* Should the final output contain:
+			<select name="cntfmt" id="cntfmt">
+				<option value="1">raw counts</option>
+				<option value="2">regularized log2 values</option>
+				<option value="3">normalized counts</option>
+			</select>
+
+
+			<h3>Select data file: </h3>
+<pre>
+Tab-delimited file with expression data.  Sample names in header row must match
+sample names in sampleinfo file. The data file can contain extra samples. Only
+samples found in both the data file and the sample information file will be
+used for analysis. The data file may contain annotation columns.
+The gene ID must be in column 1.
+</pre>
+			* Local: <input name='datafile' type=file onchange="filelist(this.datafiles)">
+			<br>OR<br>
+                        * Marburg (enter absolute path to file): <input type=input name="marburgfile" id="marburgfile" style="width:500px" placeholder="/home/act/data/dir/datafile.txt">
+			<div id="filelist" class="dashdiv"></div>
+
+			<h3>Select sampleinfo file: </h3>
+<pre>
+Tab-delimited file containing sample group information.
+
+Column 1 of the sample information file must contain the sample names that
+appear in the header row of the data file.
+
+The analysis may have 1 or 2 factors, in column 6, and optionally, column 7.  Each factor may contain
+any nmumber of levels.
+
+If running a 1 factor analysis, a pairing variable can optionally be supplied.  In this case, factor 1
+must be in column 6, and column 9 contains the pairing variable.  Columns 7 and 8 should contain "NA".
+</pre>
+
+                        * Local: <input name='sampleinfofile' type=file onchange="filelist(this.thresholdfiles)">
+			<br>OR<br>
+			* Marburg (enter absolute path to file): <input type=input name="sampleinfomarburg" id="sampleinfomarburg" style="width:500px" placeholder="/home/act/data/dir/sampleinfo.txt">
+
+                        <div id="filelist" class="dashdiv"></div>
+
+
+			<p><input type=submit value="Next" id="submit"><input type=reset value="Reset"></p>
+		</form>
+	</body>
+	<script type="text/javascript" src="result.js"></script>
+</html>

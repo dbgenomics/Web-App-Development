@@ -1,0 +1,16 @@
+Parameter	Setting
+Width:	2400
+Height:	2400
+Resolution:	300
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+2016-12-27_Filter_Genes_RPKM_Stat-Results.txt	/home/act/datatest/2018-01-03_venn	2018-01-03 13:48:57	a452e2a7045c82322476ba910a701719
+	/home/act/datatest/2018-01-03_venn	2018-01-04 10:24:34	
+
+Marburg command: ssh -i /home/yonggan/.ssh/id_rsa_nick act@192.168.0.14 'cd /home/act/software/nickbild/webdata/venn_general/webdata/KGWuJjtt; /home/act/software/nickbild/venn_general.pl "venn_config.2.cfg" "2016-12-27_Filter_Genes_RPKM_Stat-Results.txt" "" "2400" "2400" "300"'
+Response:   adding: venn.jpg (deflated 52%)
+  adding: venn.svg (deflated 73%)
+  adding: brief_a-gene-list.txt (deflated 83%)
+  adding: brief_c-gene-list.txt (deflated 83%)
+  adding: brief_c-brief_a-overlap.txt (deflated 83%)
+

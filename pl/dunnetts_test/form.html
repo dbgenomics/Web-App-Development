@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<title>Ocean Ridge Biosciences Intranet</title>
+		<link rel='stylesheet' href='../../css/style.css' type='text/css'>
+		<link rel='stylesheet' href='result.css' type='text/css'>
+	</head>
+	<body style="padding-left:5px">
+		<div id="title">
+			<h1>Dunnett's Test</h1>
+		<hr>
+		<h3>Configuration:</h3>
+		<form method=post action="api.cgi" id="form" enctype="multipart/form-data">
+			* Which log base is the data file already in (e.g.: 2. Leave blank if not log transformed.)?
+			<input type=input name="log" id="log" style="width:50px" value="">
+
+			<br>* Which log base is the thresholds file already in (e.g.: 2. Leave blank if not log transformed.)?
+			<input type=input name="logt" id="logt" style="width:50px" value="">
+
+
+			<h3>Select data file: </h3>
+<pre>
+Tab-delimited file with expression data.  Sample names in header row must match
+sample names in sampleinfo file. The data file can contain extra samples. Only
+samples found in both the data file and the sample information file will be
+used for analysis. The data file may contain annotation columns. Annotation
+columns in columns 2 to 8 will be kept in the results, if they are present.
+</pre>
+			* Local: <input name='datafile' type=file onchange="filelist(this.datafiles)">
+			<br>OR<br>
+                        * Marburg (enter absolute path to file): <input type=input name="marburgfile" id="marburgfile" style="width:500px" placeholder="/home/act/data/dir/datafile.txt">
+			<div id="filelist" class="dashdiv"></div>
+
+			<h3>Select sampleinfo file: </h3>
+<pre>
+Tab-delimited file containing sample group information.
+
+Column 1 of the sample information file must contain the sample names that
+appear in the header row of the data file and also the header row of the
+threshold file.
+
+Column 6 must have the single factor and there must be a 'Group
+Order' column that contains numbers starting at 1 corresponding to the order of
+the levels in the single factor for the ANOVA.
+
+The 'Group Order' column can appear in any column of the sampleinfo file,
+including column 6 (in which case the Group Order will be the group). Obviously
+each group should correspond to one and only one Group Order (but the script
+will check this).
+
+Additional columns may be present in the sample information file; the only
+columns used for analysis are columns 1 and 6 and the column named "Group Order".
+
+The Group Order column is used to sort the groups in ascending order so that
+the control group is first. To achieve this, it should contain a 1 for the
+control group in each analysis and then the second group would be 2, and so.
+
+For example, the sample info file shown below:
+
+Sample ID       Col2    Col3    Col4    Col5    Group   Group Order
+HYH0001         -       -       -       -       G1      1
+HYH0002         -       -       -       -       G1      1
+HYH0003         -       -       -       -       G8      2
+HYH0004         -       -       -       -       G8      2
+HYH0005         -       -       -       -       G15     3
+HYH0006         -       -       -       -       G15     3
+
+would compare G8 vs. G1 and G15 vs. G1.
+</pre>
+
+                        * Local: <input name='sampleinfofile' type=file onchange="filelist(this.thresholdfiles)">
+			<br>OR<br>
+			* Marburg (enter absolute path to file): <input type=input name="sampleinfomarburg" id="sampleinfomarburg" style="width:500px" placeholder="/home/act/data/dir/sampleinfo.txt">
+
+			<h3>Select thresholds file: </h3>
+<pre>
+Tab-delimited with a header row and a single threshold row. The header row must
+have the sample names and the sample names must match those in column 1 of the
+sampleinfo file and the header row of data file. The threshold file may contain
+extra samples -- only samples in the sample information file will be used.
+</pre>
+			* Local: <input name='thresholdfile' type=file onchange="filelist(this.thresholdfiles)">
+                        <br>OR<br>
+                        * Marburg (enter absolute path to file): <input type=input name="thresholdmarburg" id="thresholdmarburg" style="width:500px" placeholder="/home/act/data/dir/threshold.txt">
+
+
+                        <div id="filelist" class="dashdiv"></div>
+
+
+			<p><input type=submit value="Next" id="submit"><input type=reset value="Reset"></p>
+		</form>
+	</body>
+	<script type="text/javascript" src="result.js"></script>
+</html>

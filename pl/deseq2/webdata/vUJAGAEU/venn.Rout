@@ -1,0 +1,39 @@
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library (VennDiagram)
+Loading required package: grid
+Loading required package: futile.logger
+> jpeg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/vUJAGAEU/venn/venn.jpg", width=2400, height=2400, res=300)
+> draw.quintuple.venn(area1 = 3169, area2 = 3116, area3 = 6155, area4 = 3058, area5 = 5865, n12 = 3028, n13 = 1555, n14 = 2685, n15 = 1511, n23 = 1538, n24 = 2643, n25 = 1490, n34 = 1491, n35 = 2497, n45 = 1278, n123 = 1497, n124 = 2615, n125 = 1452, n134 = 1320, n135 = 724, n145 = 1145, n234 = 1304, n235 = 714, n245 = 1141, n345 = 618, n1234 = 1291, n1235 = 699, n1245 = 1135, n1345 = 555, n2345 = 553, n12345 = 552, category=c('D long description', 'C long description', 'A long description', 'E long description', 'B long description'), fill=c('light blue', 'pink', 'skyblue', 'orange', 'red') )
+(polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], polygon[GRID.polygon.5], polygon[GRID.polygon.6], polygon[GRID.polygon.7], polygon[GRID.polygon.8], polygon[GRID.polygon.9], polygon[GRID.polygon.10], text[GRID.text.11], text[GRID.text.12], text[GRID.text.13], text[GRID.text.14], text[GRID.text.15], text[GRID.text.16], text[GRID.text.17], text[GRID.text.18], text[GRID.text.19], text[GRID.text.20], text[GRID.text.21], text[GRID.text.22], text[GRID.text.23], text[GRID.text.24], text[GRID.text.25], text[GRID.text.26], text[GRID.text.27], text[GRID.text.28], text[GRID.text.29], text[GRID.text.30], text[GRID.text.31], text[GRID.text.32], text[GRID.text.33], text[GRID.text.34], text[GRID.text.35], text[GRID.text.36], text[GRID.text.37], text[GRID.text.38], text[GRID.text.39], text[GRID.text.40], text[GRID.text.41], text[GRID.text.42], text[GRID.text.43], text[GRID.text.44], text[GRID.text.45], text[GRID.text.46]) 
+> dev.off()
+null device 
+          1 
+> svg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/vUJAGAEU/venn/venn.svg")
+> draw.quintuple.venn(area1 = 3169, area2 = 3116, area3 = 6155, area4 = 3058, area5 = 5865, n12 = 3028, n13 = 1555, n14 = 2685, n15 = 1511, n23 = 1538, n24 = 2643, n25 = 1490, n34 = 1491, n35 = 2497, n45 = 1278, n123 = 1497, n124 = 2615, n125 = 1452, n134 = 1320, n135 = 724, n145 = 1145, n234 = 1304, n235 = 714, n245 = 1141, n345 = 618, n1234 = 1291, n1235 = 699, n1245 = 1135, n1345 = 555, n2345 = 553, n12345 = 552, category=c('D long description', 'C long description', 'A long description', 'E long description', 'B long description'), fill=c('light blue', 'pink', 'skyblue', 'orange', 'red') )
+(polygon[GRID.polygon.47], polygon[GRID.polygon.48], polygon[GRID.polygon.49], polygon[GRID.polygon.50], polygon[GRID.polygon.51], polygon[GRID.polygon.52], polygon[GRID.polygon.53], polygon[GRID.polygon.54], polygon[GRID.polygon.55], polygon[GRID.polygon.56], text[GRID.text.57], text[GRID.text.58], text[GRID.text.59], text[GRID.text.60], text[GRID.text.61], text[GRID.text.62], text[GRID.text.63], text[GRID.text.64], text[GRID.text.65], text[GRID.text.66], text[GRID.text.67], text[GRID.text.68], text[GRID.text.69], text[GRID.text.70], text[GRID.text.71], text[GRID.text.72], text[GRID.text.73], text[GRID.text.74], text[GRID.text.75], text[GRID.text.76], text[GRID.text.77], text[GRID.text.78], text[GRID.text.79], text[GRID.text.80], text[GRID.text.81], text[GRID.text.82], text[GRID.text.83], text[GRID.text.84], text[GRID.text.85], text[GRID.text.86], text[GRID.text.87], text[GRID.text.88], text[GRID.text.89], text[GRID.text.90], text[GRID.text.91], text[GRID.text.92]) 
+> dev.off()
+null device 
+          1 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  1.355   0.047   1.394 

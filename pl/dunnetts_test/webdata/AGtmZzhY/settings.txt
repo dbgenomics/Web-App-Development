@@ -1,0 +1,8 @@
+Parameter	Setting
+Data File Log Base:	
+Threshold File Log Base:	
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+2019-09-13_Yi_RQ_Transposed.txt	/home/yonggan/www/pl/dunnetts_test/webdata/AGtmZzhY	2019-09-19 11:34:25	ff871749aa2a19e7d0eee33e9b7cb2ed
+2019-09-13-Yi_Genevant_Plotting_SampleInfo_Dunnets.txt	/home/yonggan/www/pl/dunnetts_test/webdata/AGtmZzhY	2019-09-19 11:34:25	10688ff0842a289817908f5f70aca561
+2019-09-17_Yi_RQ_Threshold.txt	/home/yonggan/www/pl/dunnetts_test/webdata/AGtmZzhY	2019-09-19 11:34:25	0fcc46626d242c272be720711674f773

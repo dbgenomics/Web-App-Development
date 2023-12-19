@@ -1,0 +1,19 @@
+Parameter	Setting
+Output Count Format:	3
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+easyRNASeq_Anno_MoveDMD_PartB_Batch3_genes_raw.txt	/home/act/datatest/2018-01-05_deseq2	2017-10-18 07:23:15	b03ba875c4701bd3de6fbdb177b2bd51
+2017-10-10_Catabasis_Batch3_Sample_Info.1-factor.txt	/home/act/datatest/2018-01-05_deseq2	2017-10-26 09:55:39	0c9378843a79bcfbd7cbfd984475a6bd
+
+Marburg command: ssh -i /home/yonggan/.ssh/id_rsa_nick act@192.168.0.14 'cd /home/act/software/nickbild/webdata/deseq2/webdata/angjKECN; /home/act/software/nickbild/deseq2_run.pl "2017-10-10_Catabasis_Batch3_Sample_Info.1-factor.txt" 0 "easyRNASeq_Anno_MoveDMD_PartB_Batch3_genes_raw.txt" "3"'
+Response: mkdir: created directory `/home/act/software/nickbild/webdata/deseq2/webdata/angjKECN/deseq2'
+Running 1 factor analysis...
+Unable to run job: Job was rejected because job requests unknown queue "3".
+Exiting.
+The 1 factor has >2 levels.  Running overall effect...
+Unable to run job: Job was rejected because job requests unknown queue "3".
+Exiting.
+Jobs complete!
+
+ERROR: Could not open /home/act/software/nickbild/webdata/deseq2/webdata/angjKECN/deseq2/deseq_output_0.txt, No such file or directory at /home/act/software/nickbild/deseq2_run.pl line 317.
+

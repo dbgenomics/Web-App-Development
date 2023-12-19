@@ -1,0 +1,10 @@
+#Sequencing Data ID	Sample Name	ORB Enriched Library ID	Customer ID	Project	Genotype	Condition
+SL244474	4772-CN-0001	CP5811609	fl-fl-1 F Sol Num645 Run	Percival	fl/fl	Run
+SL244475	4772-CN-0002	CP5811610	fl-fl-2 F Sol Num647 Run	Percival	fl/fl	Run
+SL244476	4772-CN-0003	CP5811611	fl-fl-3 F Sol Num681 Run	Percival	fl/fl	Run
+SL244477	4772-CN-0004	CP5811612	fl-fl-1 F Sol Num648 Rest	Percival	fl/fl	Rest
+SL244478	4772-CN-0005	CP5811613	fl-fl-2 F Sol Num694 Rest	Percival	fl/fl	Rest
+SL244479	4772-CN-0006	CP5811614	fl-fl-3 F Sol Num695 Rest	Percival	fl/fl	Rest
+SL244480	4772-CN-0007	CP5811615	mKO-1 F Sol Num626 Run	Percival	mKO	Run
+SL244481	4772-CN-0008	CP5811616	mKO-2 F Sol Num640 Run	Percival	mKO	Run
+SL244482	4772-CN-0009	CP5811617	mKO-3 F Sol Num632 Run	Percival	mKO	Run

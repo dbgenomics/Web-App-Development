@@ -1,0 +1,93 @@
+#!/usr/bin/perl
+use CGI qw/:standard/;
+
+print "Content-type: text/html\n\n";
+
+# Get form data.
+%para = ();
+@tmp=("datafile","marburgfile", "sampleinfofile", "sampleinfomarburg", "sampleinfopaste", "headercols", "limits", "log2yn", "width", "height", "datacol", "cluster", "feature", "datatype", "speciessel", "criteria", "projdesc");
+foreach (@tmp){
+	if (param($_) eq "") {
+                $para{$_}=".";
+        } else {
+                $para{$_}=param($_);
+        }
+}
+
+# Generate unique directory name.
+@chars = ("A".."Z", "a".."z");
+$unique .= $chars[rand @chars] for 1..8;
+$unique = "webdata/$unique";
+
+system ("mkdir -p ./$unique");
+
+# Upload the data file.
+if (not $para{"marburgfile"} eq ".") {
+	@temp = split (/\//, $para{"marburgfile"});
+        $fileonly = $temp[-1];
+        system ("scp -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14:" . $para{"marburgfile"} . " ./$unique/$fileonly");
+        $para{"datafile"} = $fileonly;
+} else {
+        my $filename = $para{"datafile"};
+        my $output_file = "/tmp/uploaded";
+        my ($bytesread, $buffer);
+        my $numbytes = 1024;
+        open (OUT, ">./$unique/" . $para{"datafile"});
+        while ($bytesread = read($filename, $buffer, $numbytes)) {
+                print OUT $buffer;
+        }
+        close OUT;
+}
+
+# Upload the sampleinfo file.
+if (not $para{"sampleinfomarburg"} eq ".") {
+	@temp = split (/\//, $para{"sampleinfomarburg"});
+        $fileonly = $temp[-1];
+        system ("scp -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14:" . $para{"sampleinfomarburg"} . " ./$unique/$fileonly");
+        $para{"sampleinfofile"} = $fileonly;
+} elsif (not $para{"sampleinfopaste"} eq ".") {
+        open (OUTFILE, ">./$unique/sampleinfo.txt") or die $!;
+        print OUTFILE $para{"sampleinfopaste"};
+        close (OUTFILE);
+        $para{"sampleinfofile"} = "sampleinfo.txt";
+} else {
+        my $filename = $para{"sampleinfofile"};
+        my $output_file = "/tmp/uploaded";
+        my ($bytesread, $buffer);
+        my $numbytes = 1024;
+        open (OUT, ">./$unique/" . $para{"sampleinfofile"});
+        while ($bytesread = read($filename, $buffer, $numbytes)) {
+                print OUT $buffer;
+        }
+        close OUT;
+}
+
+$sampleinfo = $para{"sampleinfofile"};
+$datafile = $para{"datafile"};
+$headercols = $para{"headercols"};
+$limits = $para{"limits"};
+$log2yn = $para{"log2yn"};
+$width = $para{"width"};
+$height = $para{"height"};
+$datacol = $para{"datacol"};
+$cluster = $para{"cluster"};
+$feature = $para{"feature"};
+$datatype = $para{"datatype"};
+$speciessel = $para{"speciessel"};
+$criteria = $para{"criteria"};
+$projdesc = $para{"projdesc"};
+
+# Set up environment and transfer data to marburg.
+$var = `ssh -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14 'mkdir -p /home/act/software/nickbild/webdata/correlation_matrix/$unique'`;
+$var = `scp -i /home/yonggan/.ssh/id_rsa_nick ./$unique/$sampleinfo act\@192.168.0.14:/home/act/software/nickbild/webdata/correlation_matrix/$unique/`;
+$var = `scp -i /home/yonggan/.ssh/id_rsa_nick ./$unique/$datafile act\@192.168.0.14:/home/act/software/nickbild/webdata/correlation_matrix/$unique/`;
+
+# Launch the job on marburg.
+$var = `ssh -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14 'cd /home/act/software/nickbild/webdata/correlation_matrix/$unique; /home/act/software/nickbild/correlation.pl $sampleinfo 0 \"$datafile\" \"$headercols\" \"$limits\" \"$log2yn\" \"$width\" \"$height\" \"$datacol\" \"$cluster\" \"$feature\" \"$datatype\" \"$speciessel\" \"$criteria\" \"$projdesc\"'`;
+# Load status page.
+print "<script>\n";
+print "window.location = \"status.cgi?unique=$unique\";\n";
+print "</script>\n";
+
+exit;
+

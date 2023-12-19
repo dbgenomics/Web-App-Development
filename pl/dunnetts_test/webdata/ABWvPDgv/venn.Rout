@@ -1,0 +1,39 @@
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library (VennDiagram)
+Loading required package: grid
+Loading required package: futile.logger
+> jpeg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/ABWvPDgv/venn/venn.jpg", width=2400, height=2400, res=300)
+> draw.triple.venn(area1 = 3116, area2 = 6155, area3 = 5865, n12 = 1538, n23 = 2497, n13 = 1490, n123 = 714, category=c('C long description', 'A long description', 'B long description'), fill=c('light blue', 'pink', 'skyblue') )
+(polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], polygon[GRID.polygon.5], polygon[GRID.polygon.6], text[GRID.text.7], text[GRID.text.8], text[GRID.text.9], text[GRID.text.10], text[GRID.text.11], text[GRID.text.12], text[GRID.text.13], text[GRID.text.14], text[GRID.text.15], text[GRID.text.16]) 
+> dev.off()
+null device 
+          1 
+> svg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/ABWvPDgv/venn/venn.svg")
+> draw.triple.venn(area1 = 3116, area2 = 6155, area3 = 5865, n12 = 1538, n23 = 2497, n13 = 1490, n123 = 714, category=c('C long description', 'A long description', 'B long description'), fill=c('light blue', 'pink', 'skyblue') )
+(polygon[GRID.polygon.17], polygon[GRID.polygon.18], polygon[GRID.polygon.19], polygon[GRID.polygon.20], polygon[GRID.polygon.21], polygon[GRID.polygon.22], text[GRID.text.23], text[GRID.text.24], text[GRID.text.25], text[GRID.text.26], text[GRID.text.27], text[GRID.text.28], text[GRID.text.29], text[GRID.text.30], text[GRID.text.31], text[GRID.text.32]) 
+> dev.off()
+null device 
+          1 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.959   0.109   1.058 

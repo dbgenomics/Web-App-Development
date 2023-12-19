@@ -1,0 +1,39 @@
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library (VennDiagram)
+Loading required package: grid
+Loading required package: futile.logger
+> jpeg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/KGWuJjtt/venn/venn.jpg", width=2400, height=2400, res=300)
+> draw.pairwise.venn(area1=3116, area2=6155, cross.area=1538, category=c('C long description', 'A long description'), fill=c('light blue', 'pink') )
+(polygon[GRID.polygon.1], polygon[GRID.polygon.2], polygon[GRID.polygon.3], polygon[GRID.polygon.4], text[GRID.text.5], text[GRID.text.6], text[GRID.text.7], text[GRID.text.8], text[GRID.text.9]) 
+> dev.off()
+null device 
+          1 
+> svg (filename="/home/act/software/nickbild/webdata/venn_general/webdata/KGWuJjtt/venn/venn.svg")
+> draw.pairwise.venn(area1=3116, area2=6155, cross.area=1538, category=c('C long description', 'A long description'), fill=c('light blue', 'pink') )
+(polygon[GRID.polygon.10], polygon[GRID.polygon.11], polygon[GRID.polygon.12], polygon[GRID.polygon.13], text[GRID.text.14], text[GRID.text.15], text[GRID.text.16], text[GRID.text.17], text[GRID.text.18]) 
+> dev.off()
+null device 
+          1 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  2.062   0.073   2.206 

@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<title>Ocean Ridge Biosciences Intranet</title>
+		<link rel='stylesheet' href='../../css/style.css' type='text/css'>
+		<link rel='stylesheet' href='result.css' type='text/css'>
+	</head>
+	<body style="padding-left:5px">
+		<div id="title">
+			<h1>Correlation Matrix</h1>
+		<br><br>Full README available <a href="/pl/readme_files/correlation_matrix/PROCESS-README.txt" target="_blank">here</a>.
+		<hr>
+		<h3>Provide information for presentation:</h3>
+		<form method=post action="api.cgi" id="form" enctype="multipart/form-data">
+			* Which columns in the sampleinfo file should be combined to name the samples (comma-separated list, no spaces, e.g.: 6,7,8)?
+			<input type=input name="headercols" id="headercols" style="width:50px" value="6,7,8">
+
+			<br>
+			* Limits to use for coloring the correlation matrix. Specify values as 'min,max'. To use ggplot's default, set to "none".
+                        <input type=input name="limits" id="limits" style="width:50px" value="none">
+
+			<br>
+			* Is the data already log transformed?
+			<select name="log2yn" id="log2yn">
+				<option>N</option>
+				<option>Y</option>
+			</select>
+
+			<br>
+                        * Specify the output figure width:
+                        <input type=input name="width" id="width" style="width:50px" value="800">
+
+			<br>
+			* Specify the output figure height :
+			<input type=input name="height" id="height" style="width:50px" value="600">
+
+			<br>
+			* In which column does your data begin?
+			<input type=input name="datacol" id="datacol" style="width:50px">
+
+			<br>
+                        * What method would you like to use to cluster samples?
+                        <select name="cluster" id="cluster">
+                                <option>none</option>
+                                <option>average</option>
+                        </select>
+
+			<br>
+			* Feature type?
+                        <select name="featuresel" id="featuresel" onChange="document.getElementById('feature').value=document.getElementById('featuresel').value;">
+                                <option>genes</option>
+                                <option>microRNAs</option>
+                                <option>small RNAs</option>
+                                <option>long RNAs</option>
+                                <option>protein analytes</option>
+                                <option>transcripts</option>
+                                <option></option>
+                        </select>&nbsp;
+                        <input type="text" name="feature" id="feature" style="width:200px" value="genes">
+
+                        <br>
+                        * Data Type?
+                        <select name="datatypesel" id="datatypesel" onChange="document.getElementById('datatype').value=document.getElementById('datatypesel').value;">
+                                <option>RPKMs</option>
+                                <option>probe intensities</option>
+                                <option>normalized probe intensities</option>
+                                <option>RPMs</option>
+                                <option>protein concentrations</option>
+                                <option></option>
+                        </select>&nbsp;
+                        <input type="text" name="datatype" id="datatype" style="width:200px" value="RPKMs">
+
+                        <br>
+                        * Species?
+                        <select name="speciessel" id="speciessel" onChange="document.getElementById('species').value=document.getElementById('speciessel').value;">
+                                <option>human</option>
+                                <option>mouse</option>
+                                <option>rat</option>
+				<option>porcine</option>
+                                <option></option>
+                        </select>&nbsp;
+
+			<br>
+                        * Criteria Text:
+                        <input type="text" name="criteria" id="criteria" style="width:400px">
+
+                        <br>
+                        * Report Subtitle:
+                        <input type="text" name="projdesc" id="projdesc" style="width:200px">
+
+			<h3>Select data file: </h3>
+<pre>
+The data file is expected to have annotation rows first, followed by data rows. The
+first row in the data file must be a header row, and the sample names in
+the header must match the sample names in the sampleinfo file.
+There must be no blank rows, including trailing blank rows, in the data file.
+</pre>
+			* Local: <input name='datafile' type=file onchange="filelist(this.datafiles)">
+			<br>OR<br>
+                        * Marburg (enter absolute path to file): <input type=input name="marburgfile" id="marburgfile" style="width:500px" placeholder="/home/act/data/dir/datafile.txt">
+			<div id="filelist" class="dashdiv"></div>
+
+			<h3>Select sampleinfo file: </h3>
+<pre>
+The sampleinfo file must be a tab-delimited text file with sample names in the first column.
+</pre>
+                        * Local: <input name='sampleinfofile' type=file onchange="filelist(this.thresholdfiles)">
+			<br>OR<br>
+			* Marburg (enter absolute path to file): <input type=input name="sampleinfomarburg" id="sampleinfomarburg" style="width:500px" placeholder="/home/act/data/dir/sampleinfo.txt">
+			<br>OR<br>
+			* Paste:<br>
+			<textarea name="sampleinfopaste" id="sampleinfopaste" rows="10" cols="80"></textarea>
+
+                        <div id="filelist" class="dashdiv"></div>
+
+
+			<p><input type=submit value="Next" id="submit"><input type=reset value="Reset"></p>
+		</form>
+	</body>
+	<script type="text/javascript" src="result.js"></script>
+</html>

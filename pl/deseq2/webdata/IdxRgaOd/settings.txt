@@ -1,0 +1,21 @@
+Parameter	Setting
+Width:	2400
+Height:	2400
+P Column:	
+FC Column:	
+P Cutoff:	0.05
+FC Cutoff:	2
+P Column (MA):	
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+Stat_easyRNASeq_Anno_Percival_genes_rpkm.txt.filtered.txt.fixheaders.txt_2017-04-24_Percival_Sample_Info.txt_Tukey_conditional-statanalyzed.txt	/home/act/datatest/2018-01-04_volcano_ma	2017-08-10 10:52:03	1f9a280d2effbbe3256b921a6299c6d8
+2017-04-24_Percival_Sample_Info.txt	2017-04-24_Percival_Sample_Info.txt		3f130e0ae791b145697b12ea4a1c15ee
+
+Marburg command: ssh -i /home/yonggan/.ssh/id_rsa_nick act@192.168.0.14 'cd /home/act/software/nickbild/webdata/volcano_ma/webdata/IdxRgaOd; /home/act/software/nickbild/volcano_ma_plots.pl "2017-04-24_Percival_Sample_Info.txt" 0 "Stat_easyRNASeq_Anno_Percival_genes_rpkm.txt.filtered.txt.fixheaders.txt_2017-04-24_Percival_Sample_Info.txt_Tukey_conditional-statanalyzed.txt" "" "" "0.05" "2" "" "2400" "2400"'
+Response: Generating plots...
+  adding: mKO-fl_fl_at_fixed_Run_volcano_plot.jpg (deflated 22%)
+  adding: Run-Rest_at_fixed_fl_fl_volcano_plot.jpg (deflated 22%)
+  adding: fl_fl-Rest_vs_mKO-Run_mean_diff_plot.jpg (deflated 23%)
+  adding: fl_fl-Run_vs_fl_fl-Rest_mean_diff_plot.jpg (deflated 25%)
+  adding: fl_fl-Run_vs_mKO-Run_mean_diff_plot.jpg (deflated 21%)
+

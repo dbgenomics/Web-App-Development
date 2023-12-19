@@ -1,0 +1,6 @@
+Parameter	Setting
+Output Count Format:	1
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+2020-06-28_Kindel_MCW_Anno_genes_raw.txt	/home/yonggan/www/pl/deseq2/webdata/JALmMrnW	2020-06-30 18:38:15	1b34c57bf91865c5aa0112d12197c721
+2020-06-28_Kindel_MCW_Sample_Information.txt	/home/yonggan/www/pl/deseq2/webdata/JALmMrnW	2020-06-30 18:38:15	043a5a9e70cb66e0e0154e2f62a8da06

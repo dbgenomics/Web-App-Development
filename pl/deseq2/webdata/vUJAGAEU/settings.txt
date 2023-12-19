@@ -1,0 +1,44 @@
+Parameter	Setting
+Width:	2400
+Height:	2400
+Resolution:	300
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+2016-12-27_Filter_Genes_RPKM_Stat-Results.txt	/home/act/datatest/2018-01-03_venn	2018-01-03 13:48:57	a452e2a7045c82322476ba910a701719
+venn_config.5.cfg	/home/act/datatest/2018-01-03_venn	2018-01-04 09:42:29	65c731006a464b4ecd70a770ac85aa27
+
+Marburg command: ssh -i /home/yonggan/.ssh/id_rsa_nick act@192.168.0.14 'cd /home/act/software/nickbild/webdata/venn_general/webdata/vUJAGAEU; /home/act/software/nickbild/venn_general.pl "venn_config.5.cfg" "2016-12-27_Filter_Genes_RPKM_Stat-Results.txt" "" "2400" "2400" "300"'
+Response:   adding: venn.jpg (deflated 28%)
+  adding: venn.svg (deflated 72%)
+  adding: brief_a-gene-list.txt (deflated 83%)
+  adding: brief_b-gene-list.txt (deflated 83%)
+  adding: brief_c-gene-list.txt (deflated 83%)
+  adding: brief_d-gene-list.txt (deflated 83%)
+  adding: brief_e-gene-list.txt (deflated 83%)
+  adding: brief_a-brief_b-overlap.txt (deflated 83%)
+  adding: brief_a-brief_e-brief_b-overlap.txt (deflated 82%)
+  adding: brief_a-brief_e-overlap.txt (deflated 83%)
+  adding: brief_c-brief_a-brief_b-overlap.txt (deflated 82%)
+  adding: brief_c-brief_a-brief_e-brief_b-overlap.txt (deflated 82%)
+  adding: brief_c-brief_a-brief_e-overlap.txt (deflated 83%)
+  adding: brief_c-brief_a-overlap.txt (deflated 83%)
+  adding: brief_c-brief_b-overlap.txt (deflated 83%)
+  adding: brief_c-brief_e-brief_b-overlap.txt (deflated 83%)
+  adding: brief_c-brief_e-overlap.txt (deflated 83%)
+  adding: brief_d-brief_a-brief_b-overlap.txt (deflated 82%)
+  adding: brief_d-brief_a-brief_e-brief_b-overlap.txt (deflated 82%)
+  adding: brief_d-brief_a-brief_e-overlap.txt (deflated 83%)
+  adding: brief_d-brief_a-overlap.txt (deflated 83%)
+  adding: brief_d-brief_b-overlap.txt (deflated 83%)
+  adding: brief_d-brief_c-brief_a-brief_b-overlap.txt (deflated 82%)
+  adding: brief_d-brief_c-brief_a-brief_e-brief_b-overlap.txt (deflated 82%)
+  adding: brief_d-brief_c-brief_a-brief_e-overlap.txt (deflated 83%)
+  adding: brief_d-brief_c-brief_a-overlap.txt (deflated 83%)
+  adding: brief_d-brief_c-brief_b-overlap.txt (deflated 83%)
+  adding: brief_d-brief_c-brief_e-brief_b-overlap.txt (deflated 82%)
+  adding: brief_d-brief_c-brief_e-overlap.txt (deflated 83%)
+  adding: brief_d-brief_c-overlap.txt (deflated 83%)
+  adding: brief_d-brief_e-brief_b-overlap.txt (deflated 82%)
+  adding: brief_d-brief_e-overlap.txt (deflated 83%)
+  adding: brief_e-brief_b-overlap.txt (deflated 83%)
+

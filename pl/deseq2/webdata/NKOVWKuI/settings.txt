@@ -1,0 +1,6 @@
+Parameter	Setting
+Output Count Format:	2
+-----------------------
+File	Path	Modification Time	MD5 Checksum
+mirbase_result_match_raw_filter_adj.txt	/home/yonggan/www/pl/deseq2/webdata/NKOVWKuI	2019-05-22 20:32:04	890a6a6d9177b8190f029eaaecf77cf8
+sampleinfo-pca-deseq2.txt	/home/yonggan/www/pl/deseq2/webdata/NKOVWKuI	2019-05-22 20:32:04	54d6265fb40797a571bc15c7f5f4e6a5
