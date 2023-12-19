@@ -1,0 +1,2 @@
+To view the clustering data, double-click the TreeView.jar application in the Treeview folder, then use the software to open the .cdt file in the _clustering-data folder. Ignore the warning messages when opening the TreeView software. If "no plugins loaded" error message is observed, select help > plugins within TreeView software, browse to treeview/plugins folder, attempt to reload plugins, then re-open the .cdt file.
+

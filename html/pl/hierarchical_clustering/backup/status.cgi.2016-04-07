@@ -1,0 +1,111 @@
+#!/usr/bin/perl
+use CGI qw/:standard/;
+
+print "Content-type: text/html\n\n";
+
+# Get URL variables.
+%para = ();
+@tmp=("unique");
+foreach (@tmp){
+	$para{$_}=param($_);
+}
+
+$unique = $para{"unique"};
+
+$result = `ssh -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14 'ls /home/act/software/nickbild/webdata/hierarchical_clustering/$unique/clustering/run.finished'`;
+
+if ($result eq "") {
+	#$var = `ssh -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14 'ls -l /home/act/software/nickbild/webdata/hierarchical_clustering/$unique/clustering/*.cluster.finished'`;
+	#if ($var =~ /cannot access/) {
+	#	print "Calculating number of genes and samples...<br><br>\n";
+	#} else {
+	#	$genes = `ssh -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14 'wc -l /home/act/software/nickbild/webdata/hierarchical_clustering/$unique/clustering/*.cluster'`;
+	#	@temp = split (/\s+/, $genes);
+#		$genes = $temp[0];
+	#	$genes--;
+
+		#$samples = `ssh -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14 'awk -F\'\t\' \'{print NF; exit}\' /home/act/software/nickbild/webdata/hierarchical_clustering/$unique/clustering/*.cluster'`;
+	#	$samples--;
+
+	#	print "Clustering $genes genes and $samples samples.<br><br>n\";
+	#}
+
+
+	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
+	$year = $year + 1900;
+	$mon++;
+	if ($mon < 10) { $mon = "0" . $mon; }
+	if ($mday < 10) { $mday = "0" . $mday; }
+	$timestamp = "$year-$mon-$mday $hour:$min:$sec";
+
+	print "Current Time: $timestamp<br>\n";
+	print "Waiting for job to complete on marburg...<br>This window will refresh every 10 seconds. Check back later for status.\n";
+	print "<script>\n";
+	print "setTimeout(function(){ window.location = \"status.cgi?unique=$unique\"; }, 10000);\n";
+	print "</script>\n";
+} else {
+	print "Finishing up...";
+	# Get the results back to the web server.
+	$var = `scp -i /home/yonggan/.ssh/id_rsa_nick act\@192.168.0.14:/home/act/software/nickbild/webdata/hierarchical_clustering/$unique/clustering/* ./$unique/`;
+
+	# Generate image of data.
+	@files = glob ("./$unique/*.cdt");
+	@temp = split (/\//, $files[0]);
+	$files[0] = $temp[-1];
+
+	# Determine -s value based on number of genes and samples.
+	$raw = $files[0];
+        $raw =~ s/\.cdt$/\.cluster/;
+
+	$linecount = `wc -l ./$unique/$raw`;
+	@temp = split (/\s+/, $linecount);
+	$linecount = $temp[0];
+
+	open (FILE, "./$unique/$raw") or die $!;
+	$row = <FILE>;
+	@rowAry = split (/\t/, $row);
+	$numcols = scalar (@rowAry) - 1;
+	close (FILE);
+	$sval1 = 1200 / $numcols; # ~1200 px wide.
+
+	$sval2 = 2000 / $linecount; # ~2000 px height.
+	# END - Determine -s value based on number of genes and samples.
+
+	system ("export DISPLAY=:0; java -jar /home/yonggan/www/pl/hierarchical_clustering/TreeView-1.1.6r4-bin/TreeView.jar -r ./$unique/$files[0] -x Dendrogram -- -o ./$unique/cluster.png -s $sval1" . "x" . "$sval2 -c 3 -a 0 -g 0 -w 0 -h 100 > /dev/null");
+
+	# Create HTML report.
+	open (HTML, ">./$unique/report.html") or die $!;
+	print HTML "<html><head>\n";
+	open (INC, "./html_include.js") or die $!;
+	while ($row = <INC>) {
+		print HTML $row;
+	}
+	close (INC);
+	print HTML "</head><body>\n";
+	print HTML "<h1>Clustering Results</h1><br><img src='cluster.png'><br><p>Log2 data were used in hierarchical clustering by Gene Cluster 3.0. Intensity values were adjusted by centering genes (median) and clustering was performed using centered correlation as distance measure and average linkage as method.</p>";
+	print HTML "</body></html>\n";
+	close (HTML);
+
+	# Make data available for download.
+	print "<br><br>Done!<br><br>Download Files:<br>\n";
+	print "<a href='./$unique/$files[0]'>$files[0]</a><br>\n";
+	$gtr = $files[0];
+	$gtr =~ s/\.cdt$/\.gtr/;
+	print "<a href='./$unique/$gtr'>$gtr</a><br>\n";
+	$atr = $files[0];
+	$atr =~ s/\.cdt$/\.atr/;
+	print "<a href='./$unique/$atr'>$atr</a><br>\n";
+	$raw = $files[0];
+        $raw =~ s/\.cdt$/\.cluster/;
+	print "<a href='./$unique/$raw'>$raw</a><br>\n";
+	print "<a href='./$unique/cluster.png'>cluster.png</a><br>\n";
+	print "<a href='./$unique/report.html'>HTML Report</a><br>\n";
+
+	# Zip it up.
+	system ("zip -j ./$unique/cluster.zip ./$unique/$files[0] ./$unique/$gtr ./$unique/$atr ./$unique/$raw ./$unique/cluster.png ./$unique/report.html > /dev/null");
+
+	print "<a href='./$unique/cluster.zip'>All Data (.zip)</a><br>\n";
+}
+
+exit;
+

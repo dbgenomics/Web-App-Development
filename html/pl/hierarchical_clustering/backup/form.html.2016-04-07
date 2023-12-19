@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>Ocean Ridge Biosciences Intranet</title>
+		<link rel='stylesheet' href='../../css/style.css' type='text/css'>
+		<link rel='stylesheet' href='result.css' type='text/css'>
+	</head>
+	<body style="padding-left:5px">
+		<div id="title">
+			<h1>Hierarchical Clustering</h1>
+		<hr>
+		<h2>Data Collection</h2>
+		<form method=post action="clustering_api.cgi" id="form" enctype="multipart/form-data">
+			<br>
+			Which columns in the sampleinfo file should be combined to name the samples (comma-separated list, e.g.: 6,7,8)?
+			<input type=input name="headercols" id="headercols" style="width:50px">
+
+			<br>
+			Which annotation columns should be combined to create a new gene id (comma-separated list, e.g.: 1,6,8)?
+                        <input type=input name="annotcols" id="annotcols" style="width:50px">
+
+			<br>
+			Is the data log transformed?
+			<select name="log2yn" id="log2yn">
+				<option>N</option>
+				<option>Y</option>
+			</select>
+
+			<br>
+			Select a contrast level for TreeView image generation:
+			<input type=input name="contrast" id="contrast" style="width:50px" value="3">
+
+			<br>
+                        Do you want to filter the data?  If yes, enter the columns to filter (comma-separated list, e.g.: 9,10,11):
+                        <input type=input name="filtercols" id="filtercols" style="width:50px">
+
+			<br>
+			If filtering, what is your filtering cutoff value (e.g. 0.05)? 1+ genes in filter columns must be &lt; this value to be retained.
+			<input type=input name="filterval" id="filterval" style="width:50px">
+
+			<br>
+			To filter by threshold values, paste the thresholds file in the text box below:
+<pre>
+Sample names must match sample names found in data and sampleinfo files.
+Must be tab-delimited text, of format:
+
+Sample	samplename1	samplename2	...	samplenameN
+Threshold	val1	val2	...	valN
+</pre>
+			<textarea name="thresholdpaste" id="thresholdpaste" rows="3" cols="80"></textarea>
+
+			<br>
+			If filtering by threshold values, what percentage of samples for a gene must be &gt;= the detection limit in order to be retained (e.g. 25)?
+			<input type=input name="thresholdval" id="thresholdval" style="width:50px">
+
+
+			<p><b>Select data file: </b><br>
+<pre>
+The data file is expected to have annotation rows first, followed by data rows. The
+first row in the data file must be a header row, and the sample names in
+the header must match the sample names in the sampleinfo file.
+</pre>
+			Local: <input name='datafile' type=file onchange="filelist(this.datafiles)">
+			<br>OR<br>
+                        Marburg (enter absolute path to file): <input type=input name="marburgfile" id="marburgfile" style="width:500px" placeholder="/home/act/data/dir/datafile.txt">
+			<div id="filelist" class="dashdiv"></div>
+
+			<p><b>Select sampleinfo file: </b><br>
+<pre>
+The sampleinfo file must be a tab-delimited text file.
+</pre>
+                        Local: <input name='sampleinfofile' type=file onchange="filelist(this.thresholdfiles)">
+			<br>OR<br>
+			Marburg (enter absolute path to file): <input type=input name="sampleinfomarburg" id="sampleinfomarburg" style="width:500px" placeholder="/home/act/data/dir/sampleinfo.txt">
+			<br>OR<br>
+			Paste:<br>
+			<textarea name="sampleinfopaste" id="sampleinfopaste" rows="10" cols="80"></textarea>
+
+                        <div id="filelist" class="dashdiv"></div>
+
+
+			<p><input type=submit value="Next" id="submit"><input type=reset value="Reset"></p>
+		</form>
+	</body>
+	<script type="text/javascript" src="result.js"></script>
+</html>

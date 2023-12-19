@@ -1,0 +1,19 @@
+Parameter	Setting
+Which columns in the sampleinfo file should be combined to name the samples? 4,6
+Which annotation columns should be combined to create a new gene id? 1,6,7
+Is the data log transformed? N
+Do you want to cluster by samples? Y 
+Do you want to filter the data? If yes, enter the columns to filter: .
+If filtering, what is your filtering cutoff value (e.g. 0.05)? 1+ genes in filter columns must be < this value to be retained. .
+Filter Gene List: .
+Description of filtering criteria: (detectable > RQT in at least one sample)
+Report Subtitle:  Acceleron Pharma Mouse mRNA Sequencing Study
+Report Name: <?php echo date(
+Feature type? genes
+Data Type? RPKM
+-----------------------
+File	Type	Path	Modification Time	MD5 Checksum
+Acceleron_Stats_Results_Sorted.txt	Input Data File	/home/yonggan/www/pl/hierarchical_clustering/webdata/FzxYBQAl		bc150c6b31f19802ea0469cab30df24a
+Acceleron_Stats_Results_Sorted.txt.fixheaders.txt	Data File With Sample Names Corrected	/home/yonggan/www/pl/hierarchical_clustering/webdata/FzxYBQAl		
+2018-04-17_Li-Acceleron-Sample-Info.txt	Sample Info File	/home/yonggan/www/pl/hierarchical_clustering/webdata/FzxYBQAl		158018a9a3f01b8de16fb35b361fabfc
+threshold.txt	Threshold File	/home/yonggan/www/pl/hierarchical_clustering/webdata/FzxYBQAl		

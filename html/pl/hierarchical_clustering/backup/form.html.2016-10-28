@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<title>Ocean Ridge Biosciences Intranet</title>
+		<link rel='stylesheet' href='../../css/style.css' type='text/css'>
+		<link rel='stylesheet' href='result.css' type='text/css'>
+	</head>
+	<body style="padding-left:5px">
+		<div id="title">
+			<h1>Hierarchical Clustering</h1>
+		<br><br>Full README available <a href="/pl/readme_files/hierarchical_clustering/PROCESS-README.txt" target="_blank">here</a>.
+		<hr>
+		<h3>Provide information for data filtering and presentation:</h3>
+		<form method=post action="clustering_api.cgi" id="form" enctype="multipart/form-data">
+			* Which columns in the sampleinfo file should be combined to name the samples (comma-separated list, e.g.: 6,7,8)?
+			<input type=input name="headercols" id="headercols" style="width:50px">
+
+			<br>
+			* Which annotation columns should be combined to create a new gene id (comma-separated list, e.g.: 1,6,8)?
+                        <input type=input name="annotcols" id="annotcols" style="width:50px">
+
+			<br>
+			* Is the data log transformed?
+			<select name="log2yn" id="log2yn">
+				<option>N</option>
+				<option>Y</option>
+			</select>
+
+			<br>
+			* Do you want to cluster by samples?
+			<select name="sampcluster" id="sampcluster">
+                                <option>Y</option>
+                                <option>N</option>
+                        </select>
+
+			<br>
+			* Select a contrast level for TreeView image generation:
+			<select name="contrast" id="contrast">
+                                <option>3</option>
+                                <option>1</option>
+				<option>5</option>
+                        </select>
+
+			<br>
+                        * Do you want to filter the data?  If yes, enter the columns to filter (comma-separated list, e.g.: 9,10,11):
+                        <input type=input name="filtercols" id="filtercols" style="width:50px">
+
+			<br>
+			* If filtering, what is your filtering cutoff value (e.g. 0.05)? 1+ genes in filter columns must be &lt; this value to be retained.
+			<input type=input name="filterval" id="filterval" style="width:50px">
+
+			<br>
+			* To filter by threshold values, paste the thresholds file in the text box below:
+<pre>
+Sample names must match sample names found in data and sampleinfo files.
+Must be tab-delimited text, of format:
+
+Sample	samplename1	samplename2	...	samplenameN
+Threshold	val1	val2	...	valN
+</pre>
+			<textarea name="thresholdpaste" id="thresholdpaste" rows="3" cols="80"></textarea>
+			<br>OR<br>
+                        Marburg (enter absolute path to file): <input type=input name="thresholdmarburg" id="thresholdmarburg" style="width:500px" placeholder="/home/act/data/dir/threshold.txt">
+
+			<br>
+			* If filtering by threshold values, what percentage of samples for a gene must be &gt;= the detection limit in order to be retained (e.g. 25)?
+			<input type=input name="thresholdval" id="thresholdval" style="width:50px">
+
+			<h3>Customize the report:</h3>
+
+			* Description of filtering criteria:
+                        <select name="criteriasel" id="criteriasel" onChange="document.getElementById('criteria').value=document.getElementById('criteriasel').value;">
+                                <option>minimum P value for ANOVA testing effect of animal age</option>
+                                <option>minimum P value for all Tukey tests</option>
+                                <option></option>
+                        </select>&nbsp;
+                        <input type="text" name="criteria" id="criteria" style="width:350px" value="minimum P value for ANOVA testing effect of animal age">
+
+			<br>
+			* Report Subtitle:
+			<input type="text" name="projdesc" id="projdesc" style="width:200px">
+
+			<br>
+                        * Report Name Prefix:
+                        <input type="text" name="reportprefix" id="reportprefix" style="width:200px">
+
+			<br>
+                        * Feature type?
+                        <select name="featuresel" id="featuresel" onChange="document.getElementById('feature').value=document.getElementById('featuresel').value;">
+                                <option>genes</option>
+                                <option>microRNAs</option>
+                                <option>small RNAs</option>
+                                <option>long RNAs</option>
+                                <option>protein analytes</option>
+                                <option>transcripts</option>
+                                <option></option>
+                        </select>&nbsp;
+                        <input type="text" name="feature" id="feature" style="width:200px" value="genes">
+
+                        <br>
+                        * Data Type?
+                        <select name="datatypesel" id="datatypesel" onChange="document.getElementById('datatype').value=document.getElementById('datatypesel').value;">
+                                <option>RPKM</option>
+                                <option>probe intensities</option>
+                                <option>normalized probe intensities</option>
+                                <option>RPM</option>
+                                <option>protein concentrations</option>
+                                <option></option>
+                        </select>&nbsp;
+                        <input type="text" name="datatype" id="datatype" style="width:200px" value="RPKMs">
+
+			<h3>Select data file: </h3>
+<pre>
+The data file is expected to have annotation rows first, followed by data rows. The
+first row in the data file must be a header row, and the sample names in
+the header must match the sample names in the sampleinfo file.
+</pre>
+			* Local: <input name='datafile' type=file onchange="filelist(this.datafiles)">
+			<br>OR<br>
+                        * Marburg (enter absolute path to file): <input type=input name="marburgfile" id="marburgfile" style="width:500px" placeholder="/home/act/data/dir/datafile.txt">
+			<div id="filelist" class="dashdiv"></div>
+
+			<h3>Select sampleinfo file: </h3>
+<pre>
+The sampleinfo file must be a tab-delimited text file with sample names in the first column.
+</pre>
+                        * Local: <input name='sampleinfofile' type=file onchange="filelist(this.thresholdfiles)">
+			<br>OR<br>
+			* Marburg (enter absolute path to file): <input type=input name="sampleinfomarburg" id="sampleinfomarburg" style="width:500px" placeholder="/home/act/data/dir/sampleinfo.txt">
+			<br>OR<br>
+			* Paste:<br>
+			<textarea name="sampleinfopaste" id="sampleinfopaste" rows="10" cols="80"></textarea>
+
+                        <div id="filelist" class="dashdiv"></div>
+
+
+			<p><input type=submit value="Next" id="submit"><input type=reset value="Reset"></p>
+		</form>
+	</body>
+	<script type="text/javascript" src="result.js"></script>
+</html>

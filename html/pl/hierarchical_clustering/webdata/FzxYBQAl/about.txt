@@ -1,0 +1,16 @@
+2023-12-19 14:40
+Sample Info: 2018-04-17_Li-Acceleron-Sample-Info.txt
+Original Input Data File: Acceleron_Stats_Results_Sorted.txt
+Data File: Acceleron_Stats_Results_Sorted.txt.fixheaders.txt
+Which columns in the sampleinfo file should be combined to name the samples? 4,6
+Which annotation columns should be combined to create a new gene id? 1,6,7
+Is the data log transformed? N
+Do you want to cluster by samples? Y 
+Do you want to filter the data? If yes, enter the columns to filter: .
+If filtering, what is your filtering cutoff value (e.g. 0.05)? 1+ genes in filter columns must be < this value to be retained. .
+Filter Gene List: .
+Description of filtering criteria: (detectable > RQT in at least one sample)
+Report Subtitle:  Acceleron Pharma Mouse mRNA Sequencing Study
+Report Name: <?php echo date(
+Feature type? genes
+Data Type? RPKM
